@@ -1,0 +1,45 @@
+<div class="bg-white flex flex-col justify-center items-center mt-5 pt-28">
+    <div>
+        <div class="flex flex-col gap-2 items-center">
+            <figure>
+                <img class="registration__logo"
+                    src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
+                    alt="">
+            </figure>
+            <h1 class="registration__title">Join the DEV Community </h1>
+            <p class="registration__description">DEV Community is a community of 1,182,171 amazing developers </p>
+        </div>
+        <div class="flex flex-col px-3 w-auto gap-3">
+            <div class="form-control w-full md:max-w-xl">
+                <label class="label">
+                    <span class="label-text">Nombre</span>
+                </label>
+                <input type="text" class="input input-bordered " />
+            </div>
+            <div class="form-control w-full md:max-w-xl">
+                <label class="label">
+                    <span class="label-text">Correo</span>
+                </label>
+                <input type="text" class="input input-bordered " />
+            </div>
+            <div class="form-control w-full  md:max-w-xl">
+                <label class="label">
+                    <span class="label-text">Contraseña</span>
+                </label>
+                <input type="password" class="input input-bordered w-full" />
+            </div>
+            <div>
+            </div>
+            <div class="my-5">
+                <button type="button" class="btn btn-primary btn-block">Register</button>
+            </div>
+            <div class="flex gap-1 justify-center items-center">
+                <span>Already have an account?</span>
+                <a class="text-primary font-semibold" [routerLink]="['/', 'auth', 'login']">Log in.</a>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

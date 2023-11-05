@@ -1,14 +1,19 @@
 <div class="navbar bg-base-100 shadow fixed top-0 z-20">
     <div class="container-layout">
         <div class="flex-1 ml-4">
-            <a class="normal-case text-xl">Social</a>
+            <figure>
+                <img class="w-auto h-12"
+                    src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
+                    alt="">
+            </figure>
         </div>
         <div class="flex items-center gap-4">
-            <div>
-                <button class="btn btn-ghost ">Log in</button>
+            <div class="hidden sm:block">
+                <button class="btn btn-ghost" [routerLink]="['/', 'auth', 'login']">Log in</button>
             </div>
-            <div>
-                <button class="btn btn-outline btn-primary">Create account</button>
+            <div class="hidden sm:block">
+                <button class="btn btn-outline btn-primary" [routerLink]="['/', 'auth', 'register']">Create
+                    account</button>
             </div>
             <div class="dropdown dropdown-end">
                 <label tabindex="0">

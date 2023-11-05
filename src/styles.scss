@@ -14,12 +14,9 @@ body {
     font-size: 1rem;
 }
 
-
-
 .btn {
-    @apply normal-case;
+    @apply normal-case text-lg;
     min-height: 2.5rem;
-    height: 2.5rem;
 }
 
 .input {

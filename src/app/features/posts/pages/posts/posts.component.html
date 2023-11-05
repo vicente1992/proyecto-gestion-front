@@ -1,39 +1,13 @@
-<div class="flex flex-row gap-6">
-    <div class="basis-1/4">
-        <div class="card  flex flex-col gap-3 bg-base-100 shadow-md p-5 rounded-md">
-            <div class="flex flex-col gap-4">
-                <span class="text-left text-black text-2xl font-bold">DEV Community is a community of 1,182,330 amazing
-                    developers
-                </span>
-                <span class="text-left text-black text-lg">
-                    We're a place where coders share, stay up-to-date and grow their careers.
-                </span>
-            </div>
-            <div class="flex flex-col gap-2">
-                <button class="btn btn-outline btn-primary  btn-block">Create account</button>
-                <button class="btn btn-ghost btn-block ">Log in</button>
-            </div>
-        </div>
+<div class="grid grid-rows-1 sm:grid-rows-2 grid-cols-1 sm:grid-cols-4  gap-6">
+    <div class="col-span-1 hidden  sm:block">
+        <app-card-info></app-card-info>
     </div>
-    <div class="basis-1/2  flex flex-col gap-3">
+    <div class="col-span-1 sm:col-span-2 row-span-1 sm:row-span-2  flex flex-col gap-3">
         <app-create-post></app-create-post>
         <app-posts-card></app-posts-card>
         <app-posts-card></app-posts-card>
     </div>
-    <div class="basis-1/4">
-        <div class="card  flex flex-col gap-3 bg-base-100 shadow-md p-5 rounded-md">
-            <div class="flex flex-col gap-4">
-                <span class="text-left text-black text-2xl font-bold">DEV Community is a community of 1,182,330 amazing
-                    developers
-                </span>
-                <span class="text-left text-black text-lg">
-                    We're a place where coders share, stay up-to-date and grow their careers.
-                </span>
-            </div>
-            <div class="flex flex-col gap-2">
-                <button class="btn btn-outline btn-primary  btn-block">Create account</button>
-                <button class="btn btn-ghost btn-block ">Log in</button>
-            </div>
-        </div>
+    <div class="col-span-1 hidden sm:block">
+        <app-most-popular></app-most-popular>
     </div>
 </div>
