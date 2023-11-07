@@ -17,11 +17,6 @@ const colors = {
   bloom: '#282b30',
   smoke: '#e8f0f0',
   soot: '#798586',
-
-  // Booking status
-  paid: '#fe9393',
-  unpaid: '#f9cb9c',
-  lock: '#ee7c24'
 };
 module.exports = {
   content: ['./src/**/*.{html,ts}'],

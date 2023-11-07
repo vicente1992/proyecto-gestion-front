@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ModalService } from '@core/services/modal/modal.service';
+import { ModalCreatePostComponent } from '../modal-create-post/modal-create-post.component';
+
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss']
+    selector: 'app-create-post',
+    templateUrl: './create-post.component.html',
+    styleUrls: ['./create-post.component.scss'],
+    standalone: true,
 })
 export class CreatePostComponent {
+    private modalService = inject(ModalService)
 
+    openModal() {
+        this.modalService.openDialog(ModalCreatePostComponent)
+    }
 }
