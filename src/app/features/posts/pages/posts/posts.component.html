@@ -4,8 +4,10 @@
   </div>
   <div class="col-span-1 sm:col-span-2 row-span-1 sm:row-span-2  flex flex-col gap-3">
     <app-create-post></app-create-post>
-    @for (post of posts(); track $index) {
+    @for (post of posts(); track post._id) {
     <app-posts-card [post]="post"></app-posts-card>
+    }@empty {
+    <span>Nada para mostrar</span>
     }
   </div>
   <div class="col-span-1 hidden sm:block">

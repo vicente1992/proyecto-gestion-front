@@ -7,7 +7,10 @@ import es from 'date-fns/locale/es';
 function formatDate(post: Post): Post {
     return {
         ...post,
-        createdAt: formatDistanceToNowStrict(new Date(post.createdAt), { locale: es, addSuffix: true })
+        createdAt: formatDistanceToNowStrict(
+            new Date(post.createdAt),
+            { locale: es, addSuffix: true }
+        )
     };
 };
 
