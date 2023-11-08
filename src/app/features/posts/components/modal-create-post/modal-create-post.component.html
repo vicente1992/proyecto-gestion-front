@@ -26,9 +26,10 @@
         class="textarea border-none outline-0  min-h-16 text-lg  text-black"></textarea>
     </div>
     <div>
-      <div *ngIf="images.length" class="grid grid-cols-2 gap-4 p-2 justify-center items-center">
-        <div *ngFor="let image of images; let i = index"
-          class=" border flex justify-center items-center flex-col relative">
+      @if (images.length) {
+      <div class="grid grid-cols-2 gap-4 p-2 justify-center items-center">
+        @for (image of images; track image; let i = $index) {
+        <div class=" border flex justify-center items-center flex-col relative">
           <img [src]="image.url" class="max-h-48  ">
           <div class="absolute top-0 right-1">
             <button (click)="removeImage(i)" class="text-lg">
@@ -36,7 +37,9 @@
             </button>
           </div>
         </div>
+        }
       </div>
+      }
       <div class="my-3">
         <input #image hidden type="file" accept="image/*" multiple (change)="onFileChange($event)" #fileInput>
         <button class="btn btn-circle " (click)="image.click()">
@@ -47,6 +50,8 @@
   </div>
   <div class="divider"></div>
   <div class="flex justify-end">
-    <button (click)="createPost()" [disabled]="isFormInvalid" class="btn btn-primary text-sm">Publicar</button>
+    <button (click)="createPost()" [disabled]="isFormInvalid" class="btn btn-primary text-sm">
+      Publicar
+    </button>
   </div>
 </div>

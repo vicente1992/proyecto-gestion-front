@@ -5,6 +5,7 @@ import { routes } from "./app.routes";
 import { provideCore } from "@core/core";
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
+import { HttpClientModule } from "@angular/common/http";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -12,6 +13,7 @@ export const appConfig: ApplicationConfig = {
         provideRouter(routes),
         importProvidersFrom(BrowserModule),
         importProvidersFrom(MatDialogModule),
+        importProvidersFrom(HttpClientModule),
         provideAnimations()
     ]
 }

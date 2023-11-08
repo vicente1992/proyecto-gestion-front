@@ -1,13 +1,14 @@
 <div class="grid grid-rows-1 sm:grid-rows-2 grid-cols-1 sm:grid-cols-4  gap-6">
-    <div class="col-span-1 hidden  sm:block">
-        <app-card-info></app-card-info>
-    </div>
-    <div class="col-span-1 sm:col-span-2 row-span-1 sm:row-span-2  flex flex-col gap-3">
-        <app-create-post></app-create-post>
-        <app-posts-card></app-posts-card>
-        <app-posts-card></app-posts-card>
-    </div>
-    <div class="col-span-1 hidden sm:block">
-        <app-most-popular></app-most-popular>
-    </div>
+  <div class="col-span-1 hidden  sm:block">
+    <app-card-info></app-card-info>
+  </div>
+  <div class="col-span-1 sm:col-span-2 row-span-1 sm:row-span-2  flex flex-col gap-3">
+    <app-create-post></app-create-post>
+    @for (post of posts(); track $index) {
+    <app-posts-card [post]="post"></app-posts-card>
+    }
+  </div>
+  <div class="col-span-1 hidden sm:block">
+    <app-most-popular></app-most-popular>
+  </div>
 </div>

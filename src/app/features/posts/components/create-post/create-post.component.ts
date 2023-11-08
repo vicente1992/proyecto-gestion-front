@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { ModalService } from '@core/services/modal/modal.service';
 import { ModalCreatePostComponent } from '../modal-create-post/modal-create-post.component';
+import { ModalService } from '@core/services/modal.service';
 
 
 @Component({

@@ -1,10 +1,9 @@
 <div class="card  bg-base-100 shadow-md p-0 rounded-md flex flex-col gap-3 py-3">
-  <app-header-post></app-header-post>
+  <app-header-post [post]="post"></app-header-post>
   <div>
     <div class="p-3 text-left">
-      <p>Obtenga Azure sin compromiso inicial. Pague solo por los servicios que usa de forma adicional a
-        las cantidades
-        gratuitas.
+      <p>
+        {{post.content}}
       </p>
     </div>
     <figure>
@@ -20,10 +19,10 @@
         <div class="bg-primary rounded-full h-6 w-6 text-center">
           <i class="ri-heart-line text-white"></i>
         </div>
-        10
+        {{post.numberOfCLikes}}
       </span>
       <span class="flex gap-1">
-        <span>2</span>
+        <span>{{post.numberOfComments}} </span>
         <span>Comentarios</span>
       </span>
     </div>

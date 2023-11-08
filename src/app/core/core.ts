@@ -1,6 +1,5 @@
 import { Provider } from "@angular/core";
-import { ModalService } from "./services/modal/modal.service";
-import { MatDialogModule } from "@angular/material/dialog";
+import { ModalService } from "./services/modal.service";
 
 export function provideCore(): Provider[] {
     return [
