@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class ModalService {
   private dialog = inject(MatDialog);
 
-  openDialog(component: ComponentType<unknown>, data: any = null) {
+  openDialog(component: ComponentType<unknown>, data = null) {
     const dialogRef = this.dialog.open(component, { data, });
     return new Observable((observer) => {
       dialogRef.afterClosed().subscribe((response) => {
