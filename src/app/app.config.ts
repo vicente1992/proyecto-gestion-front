@@ -5,7 +5,8 @@ import { routes } from "./app.routes";
 import { provideCore } from "@core/core";
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, provideHttpClient, withInterceptors } from "@angular/common/http";
+import { JwtInterceptor } from "@core/interceptors/jwt.interceptor";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -14,6 +15,11 @@ export const appConfig: ApplicationConfig = {
         importProvidersFrom(HttpClientModule),
         importProvidersFrom(BrowserModule),
         importProvidersFrom(MatDialogModule),
+        provideHttpClient(
+            withInterceptors([
+                JwtInterceptor,
+            ])
+        ),
         provideAnimations()
     ]
 }

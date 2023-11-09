@@ -45,14 +45,6 @@ export class AuthService extends HttpService {
     this.storageService.setItem(AuthStorage.TOKEN, token);
   }
 
-  isLoggedIn() {
-    return !!this.storageService.getItem(AuthStorage.TOKEN);
-  }
-
-  currentUser(): User {
-    return JSON.parse(this.storageService.getItem(AuthStorage.USER) ?? '')
-  }
-
   public logout() {
     return new Promise((resolve) => {
       this.storageService.clear();

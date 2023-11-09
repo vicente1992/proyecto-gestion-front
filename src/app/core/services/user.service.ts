@@ -1,4 +1,4 @@
-import { Injectable, effect, inject, signal } from '@angular/core';
+import { Injectable, WritableSignal, computed, effect, inject, signal } from '@angular/core';
 import { User } from '@features/auth/shared/models/user';
 import { LocalStorageService } from './local-storage.service';
 import { AuthStorage } from '@features/auth/shared/models/auth-storage.enum';
@@ -8,12 +8,7 @@ export class UserService {
   private storageService = inject(LocalStorageService);
   private _user = signal<User | null>(null);
 
-  constructor() {
-    const user = this.currentUser();
-    this._user.set(user);
-  }
-
-  get userInfo() {
+  get userInfo(): WritableSignal<User | null> {
     return this._user;
   }
 
@@ -21,9 +16,11 @@ export class UserService {
     return !!this.storageService.getItem(AuthStorage.TOKEN);
   }
 
-  currentUser(): User | null {
-    const user = this.storageService.getItem(AuthStorage.USER) ?? null;
-    return user ? JSON.parse(user) : null;
+  getCurrentUser(): void {
+    const user = this.storageService.getItem(AuthStorage.USER);
+    if (user) {
+      this._user.set(JSON.parse(user));
+    }
   }
 
 }
