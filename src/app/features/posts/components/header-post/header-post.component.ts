@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Post } from '@features/posts/shared/model/post';
 
@@ -7,7 +7,7 @@ import { Post } from '@features/posts/shared/model/post';
   templateUrl: './header-post.component.html',
   styleUrls: ['./header-post.component.scss'],
   standalone: true,
-  imports: [DatePipe]
+  imports: [NgOptimizedImage]
 })
 export class HeaderPostComponent {
   @Input({ required: true }) post!: Post

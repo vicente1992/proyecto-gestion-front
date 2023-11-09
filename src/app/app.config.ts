@@ -11,9 +11,9 @@ export const appConfig: ApplicationConfig = {
     providers: [
         provideCore(),
         provideRouter(routes),
+        importProvidersFrom(HttpClientModule),
         importProvidersFrom(BrowserModule),
         importProvidersFrom(MatDialogModule),
-        importProvidersFrom(HttpClientModule),
         provideAnimations()
     ]
 }
