@@ -1,11 +1,10 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
 import { environment } from '@environments/environment.development';
 import { AuthResponse } from '../models/auth';
 import { Observable, tap, } from 'rxjs';
 import { LocalStorageService } from '@core/services/local-storage.service';
 import { AuthStorage } from '../models/auth-storage.enum';
-import { User } from '../models/user';
 
 
 @Injectable()

@@ -8,6 +8,10 @@
     </div>
     <div class="flex items-center gap-4">
       @if (isLoggedIn) {
+      <div>
+        <button appRoles [roles]="['admin']" (click)="openModal()" class="btn btn-outline btn-primary">Crear
+          publicación</button>
+      </div>
       <div class="dropdown dropdown-end">
         <label tabindex="0">
           <app-user-avatar></app-user-avatar>

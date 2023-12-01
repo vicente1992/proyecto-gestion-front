@@ -2,6 +2,7 @@ import { NgForOf, NgIf } from '@angular/common';
 import { Component, ViewChild, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '@core/services/user.service';
 import { ImagePreview } from '@features/posts/shared/model/image-preview';
 import { MAX_ALLOWED_FILES } from '@shared/constants/file';
 
@@ -16,10 +17,16 @@ import { MAX_ALLOWED_FILES } from '@shared/constants/file';
 })
 export class ModalCreatePostComponent {
   public dialogRef = inject(MatDialogRef);
+  private userService = inject(UserService);
   @ViewChild('fileInput') fileInput: any;
   images: ImagePreview[] = [];
   formData = new FormData();
   text = new FormControl(null, [Validators.required]);
+  user = this.userService.userInfo;
+
+  constructor() {
+    this.userService.getCurrentUser();
+  }
 
   get isFormInvalid(): boolean {
     return this.text.invalid || !this.images.length

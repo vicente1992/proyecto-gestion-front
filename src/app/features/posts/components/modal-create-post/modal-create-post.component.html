@@ -13,16 +13,16 @@
       <div class="flex items-center gap-2">
         <div class="avatar placeholder cursor-pointer border-none flex-none">
           <div class="bg-neutral-focus text-neutral-content rounded-full w-12 border-none">
-            <img src="/assets/profile.png" />
+            <img [src]="user()?.avatar" [alt]="user()?.name" />
           </div>
         </div>
         <div class="flex flex-col">
-          <span class="font-medium text-lg">Manuel Ortiz Lopez</span>
+          <span class="font-medium text-lg">{{user()?.name}}</span>
         </div>
       </div>
     </div>
     <div>
-      <textarea [formControl]="text" placeholder="¿Qué tienes en mente, Manuel Vicente?"
+      <textarea [formControl]="text" [placeholder]="'¿Qué tienes en mente ' + user()?.name + '?'  "
         class="textarea border-none outline-0  min-h-16 text-lg  text-black"></textarea>
     </div>
     <div>
