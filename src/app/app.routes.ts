@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { CreatePostComponent } from '@core/components/create-post/create-post.component';
 import { LayoutComponent } from '@core/components/layout/layout.component';
 import { AuthGuard } from '@core/guards/auth.guard';
 
@@ -23,6 +24,12 @@ export const routes: Routes = [
                 pathMatch: 'full',
             },
         ]
+    },
+    {
+        path: 'new',
+        component: CreatePostComponent,
+        canActivate: [AuthGuard],
+
     },
     {
         path: '',
