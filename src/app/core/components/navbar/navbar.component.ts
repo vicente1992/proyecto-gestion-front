@@ -24,9 +24,7 @@ export class NavbarComponent {
 
 
   openModal() {
-    this.modalService.openDialog(ModalCreatePostComponent).subscribe((res) => {
-      console.log(res);
-    })
+    this.modalService.openDialog(ModalCreatePostComponent);
   }
 
   logout() {

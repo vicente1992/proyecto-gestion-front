@@ -1,6 +1,12 @@
-
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { MostPopularComponent } from '@features/posts/components/most-popular/most-popular.component';
 import { PostsCardComponent } from '@features/posts/components/posts-card/posts-card.component';
 import { CreatePostComponent } from '@features/posts/components/create-post/create-post.component';
@@ -11,28 +17,39 @@ import { firstValueFrom } from 'rxjs';
 import { NgForOf } from '@angular/common';
 
 @Component({
-    selector: 'app-posts',
-    templateUrl: './posts.component.html',
-    styleUrls: ['./posts.component.scss'],
-    standalone: true,
-    imports: [
-        CardInfoComponent,
-        CreatePostComponent,
-        PostsCardComponent,
-        MostPopularComponent,
-        NgForOf
-    ]
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.scss'],
+  standalone: true,
+  imports: [
+    CardInfoComponent,
+    CreatePostComponent,
+    PostsCardComponent,
+    MostPopularComponent,
+    NgForOf,
+  ],
 })
 export class PostsComponent implements OnInit {
-    posts = signal<Post[]>([]);
-    private PostService = inject(PostService);
+  posts = signal<Post[]>([]);
+  private postService = inject(PostService);
+  private readonly destroy: DestroyRef = inject(DestroyRef);
+  ngOnInit(): void {
+    this.listenObserver();
+    this.getPosts();
+  }
 
-    ngOnInit(): void {
-        this.getPosts();
-    }
+  async getPosts() {
+    const posts = await firstValueFrom(this.postService.getPosts());
+    this.posts.set(posts);
+  }
 
-    async getPosts() {
-        const posts = await firstValueFrom(this.PostService.getPosts());
-        this.posts.set(posts);
-    }
+  private listenObserver() {
+    this.postService.hasNewPost$
+      .pipe(takeUntilDestroyed(this.destroy))
+      .subscribe((res) => {
+        if (res) {
+          this.getPosts();
+        }
+      });
+  }
 }

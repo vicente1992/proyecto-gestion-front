@@ -26,12 +26,6 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'new',
-        component: CreatePostComponent,
-        canActivate: [AuthGuard],
-
-    },
-    {
         path: '',
         pathMatch: 'full',
         redirectTo: 'posts'
