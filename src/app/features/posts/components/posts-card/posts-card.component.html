@@ -6,8 +6,10 @@
         {{post.content}}
       </p>
     </div>
-    <figure>
-      <img class="w-full" src="/assets/post.PNG" alt="Album" />
+    <figure class="wapprer-images px-3">
+      @for (image of post.images; track $index) {
+      <img class="w-full" [src]="image" alt="Album" />
+      }
     </figure>
   </div>
   <div class="px-3 flex flex-col gap-2">

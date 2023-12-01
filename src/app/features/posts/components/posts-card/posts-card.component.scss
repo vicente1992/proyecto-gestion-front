@@ -1,6 +1,11 @@
 img {
-    background-size: cover;
-    object-position: center;
-    object-fit: cover;
-    max-height: 500px;
+    max-height: 350px;
+}
+
+.wapprer-images {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    padding-bottom: 1rem;
+    overflow-y: overlay;
 }

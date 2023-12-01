@@ -4,6 +4,7 @@ export interface Post {
     createdAt: string;
     username: string;
     avatar: string;
+    images: string[];
     numberOfComments: number;
     numberOfCLikes: number;
 }

@@ -4,8 +4,8 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from '@core/services/user.service';
 import { ImagePreview } from '@features/posts/shared/model/image-preview';
+import { PostService } from '@features/posts/shared/services/post.service';
 import { MAX_ALLOWED_FILES } from '@shared/constants/file';
-
 
 
 @Component({
@@ -18,6 +18,7 @@ import { MAX_ALLOWED_FILES } from '@shared/constants/file';
 export class ModalCreatePostComponent {
   public dialogRef = inject(MatDialogRef);
   private userService = inject(UserService);
+  private postService = inject(PostService);
   @ViewChild('fileInput') fileInput: any;
   images: ImagePreview[] = [];
   formData = new FormData();
@@ -49,7 +50,6 @@ export class ModalCreatePostComponent {
 
   }
 
-
   removeImage(index: number) {
     this.images.splice(index, 1);
   }
@@ -66,9 +66,10 @@ export class ModalCreatePostComponent {
 
   createPost() {
     const { value } = this.text
-    this.formData.append('text', `${value}`,);
-
-    console.log(this.formData.get('images'));
+    this.formData.append('content', `${value}`,);
+    this.postService.create(this.formData).subscribe(() => {
+      this.close();
+    })
   }
 
   private createImageObject(file: File, url: string): ImagePreview {
@@ -98,7 +99,7 @@ export class ModalCreatePostComponent {
   }
 
   private appendFileToFormData(file: File) {
-    this.formData.append('images[]', file, file.name);
+    this.formData.append('images', file);
   }
 
 

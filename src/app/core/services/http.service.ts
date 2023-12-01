@@ -14,8 +14,7 @@ export class HttpService {
   public createDefaultOptions(): Options {
     return {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-
+        // 'Content-Type': 'application/json',
       })
     };
   }
@@ -60,9 +59,9 @@ export class HttpService {
         headers: opts.headers || defaultOpts.headers
       };
 
-      if (!opts.headers.get('Content-Type')) {
-        opts.headers = opts.headers.set('Content-Type', defaultOpts.headers.get('Content-Type'));
-      }
+      // if (!opts.headers.get('Content-Type')) {
+      //   opts.headers = opts.headers.set('Content-Type', defaultOpts.headers.get('Content-Type'));
+      // }
     }
 
     return opts || defaultOpts;
