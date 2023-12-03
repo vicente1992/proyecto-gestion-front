@@ -1,0 +1,10 @@
+ .modal-container {
+     border-radius: 8px;
+     min-width: 480px;
+ }
+
+ @media (max-width: 768px) {
+     .modal-container {
+         max-height: 600px;
+     }
+ }
