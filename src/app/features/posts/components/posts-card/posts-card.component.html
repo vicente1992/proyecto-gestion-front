@@ -13,7 +13,7 @@
     </div>
     <figure class="wapprer-images px-3">
       @for (image of post.images; track $index) {
-      <img class="w-full" [src]="image" alt="Album" />
+      <img class="w-full" [ngSrc]="image" alt="Album" width="200" height="200" priority />
       }
     </figure>
   </div>

@@ -5,6 +5,7 @@ import { formatDistanceToNowStrict } from 'date-fns';
 import es from 'date-fns/locale/es';
 import { ModalService } from '@core/services/modal.service';
 import { ModalRatingComponent } from '../modal-rating/modal-rating.component';
+import { NgOptimizedImage } from '@angular/common';
 
 function formatDate(post: Post): Post {
   return {
@@ -21,7 +22,7 @@ function formatDate(post: Post): Post {
   templateUrl: './posts-card.component.html',
   styleUrls: ['./posts-card.component.scss'],
   standalone: true,
-  imports: [HeaderPostComponent],
+  imports: [HeaderPostComponent, NgOptimizedImage],
 })
 export class PostsCardComponent {
   @Input({ required: true, transform: formatDate }) post!: Post;
