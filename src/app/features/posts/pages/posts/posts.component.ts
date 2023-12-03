@@ -1,12 +1,5 @@
-import {
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-  signal,
-  WritableSignal,
-} from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MostPopularComponent } from '@features/posts/components/most-popular/most-popular.component';
 import { PostsCardComponent } from '@features/posts/components/posts-card/posts-card.component';
 import { CreatePostComponent } from '@features/posts/components/create-post/create-post.component';

@@ -2,11 +2,10 @@
   <div>
     <div class="flex flex-col gap-2 items-center">
       <figure>
-        <img class="registration__logo"
-          src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png" alt="">
+        <img class="registration__logo" ngSrc="assets/logo.jpg" width="200" height="200" priority>
       </figure>
-      <h1 class="registration__title">Join the DEV Community </h1>
-      <p class="registration__description">DEV Community is a community of 1,182,171 amazing developers </p>
+      <h1 class="registration__title">Actractivos Turísticos</h1>
+      <p class="registration__description">Aquí encontras lo actractivos turísticos del departamento de Bolivar </p>
     </div>
     <form [formGroup]="form" (ngSubmit)="login()">
       <div class="flex flex-col px-3 w-auto gap-3">
@@ -28,8 +27,8 @@
           <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-block">Login</button>
         </div>
         <div class="flex gap-1 justify-center items-center">
-          <span>New to DEV Community?</span>
-          <a class="text-primary font-semibold" [routerLink]="['/', 'auth', 'register']">Create account.</a>
+          <span>Nuevo en Actractivos Turísticos?</span>
+          <a class="text-primary font-semibold" [routerLink]="['/', 'auth', 'register']">Crea una cuenta.</a>
         </div>
       </div>
     </form>

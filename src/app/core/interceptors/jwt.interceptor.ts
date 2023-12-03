@@ -33,9 +33,11 @@ export const JwtInterceptor = (
     catchError((httpErrorResponse: HttpErrorResponse) => {
       const { status, error } = httpErrorResponse;
       if (status === 401) {
-        authService.logout().then(() => router.navigate(['/', 'auth', 'login']));
+        authService
+          .logout()
+          .then(() => router.navigate(['/', 'auth', 'login']));
       }
       return throwError(() => error);
     })
   );
-}
+};
