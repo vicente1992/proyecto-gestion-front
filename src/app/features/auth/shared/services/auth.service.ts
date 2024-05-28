@@ -14,29 +14,17 @@ export class AuthService extends HttpService {
 
   login(body: any): Observable<AuthResponse> {
     return this.doPost<AuthResponse>(`${this.apiTenant}/auth/login`, body)
-      .pipe(
-        tap((data) => {
-          this.setUserInfo(data);
-        })
-      );
+      .pipe(tap((data) => this.setUserInfo(data)));
   }
 
   register(body: any): Observable<AuthResponse> {
     return this.doPost<AuthResponse>(`${this.apiTenant}/auth/register`, body)
-      .pipe(
-        tap((data) => {
-          this.setUserInfo(data);
-        })
-      );
+      .pipe(tap((data) => this.setUserInfo(data)));
   }
 
   refresh(): Observable<AuthResponse> {
     return this.doGet<AuthResponse>(`${this.apiTenant}/auth/refresh`)
-      .pipe(
-        tap((data) => {
-          this.setUserInfo(data);
-        })
-      );
+      .pipe(tap((data) => this.setUserInfo(data)));
   }
 
   setUserInfo({ user, token }: AuthResponse) {

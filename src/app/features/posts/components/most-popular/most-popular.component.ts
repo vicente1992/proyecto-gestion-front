@@ -2,7 +2,7 @@ import { NgForOf } from '@angular/common';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { MostPopular } from '@features/posts/shared/model/most-popular';
 import { PostService } from '@features/posts/shared/services/post.service';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, tap } from 'rxjs';
 
 @Component({
   selector: 'app-most-popular',
@@ -19,8 +19,8 @@ export class MostPopularComponent implements OnInit {
     this.getMostPopular();
   }
 
-  async getMostPopular() {
-    const data = await firstValueFrom(this.postService.getMostPopular());
-    this.mostsPopulars.set(data);
+  getMostPopular() {
+    this.postService.getMostPopular()
+      .pipe(tap((data) => this.mostsPopulars.set(data)))
   }
 }

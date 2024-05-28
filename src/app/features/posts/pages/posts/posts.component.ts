@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MostPopularComponent } from '@features/posts/components/most-popular/most-popular.component';
 import { PostsCardComponent } from '@features/posts/components/posts-card/posts-card.component';
@@ -6,7 +6,7 @@ import { CreatePostComponent } from '@features/posts/components/create-post/crea
 import { CardInfoComponent } from '@features/posts/components/card-info/card-info.component';
 import { PostService } from '@features/posts/shared/services/post.service';
 import { Post } from '@features/posts/shared/model/post';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, tap } from 'rxjs';
 import { NgForOf } from '@angular/common';
 
 @Component({
@@ -24,6 +24,7 @@ import { NgForOf } from '@angular/common';
 })
 export class PostsComponent implements OnInit {
   posts = signal<Post[]>([]);
+  existsPost = computed(() => !!this.posts().length);
   private postService = inject(PostService);
   private readonly destroy: DestroyRef = inject(DestroyRef);
   ngOnInit(): void {
@@ -31,9 +32,9 @@ export class PostsComponent implements OnInit {
     this.getPosts();
   }
 
-  async getPosts() {
-    const posts = await firstValueFrom(this.postService.getPosts());
-    this.posts.set(posts);
+  getPosts() {
+    this.postService.getPosts()
+      .pipe(tap((posts) => this.posts.set(posts)))
   }
 
   private listenObserver() {

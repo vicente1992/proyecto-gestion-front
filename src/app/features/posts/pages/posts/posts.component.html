@@ -2,6 +2,7 @@
   <div class="col-span-1 hidden  sm:block">
     <app-card-info></app-card-info>
   </div>
+  {{existsPost()}}
   <div class="col-span-1 sm:col-span-2 row-span-1 sm:row-span-2  flex flex-col gap-3">
     @for (post of posts(); track post._id) {
     <app-posts-card [post]="post"></app-posts-card>
