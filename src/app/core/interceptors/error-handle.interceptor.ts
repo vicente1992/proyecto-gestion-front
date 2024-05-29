@@ -1,9 +1,4 @@
-import {
-  HttpRequest,
-  HttpHandlerFn,
-  HttpEvent,
-  HttpErrorResponse,
-} from '@angular/common/http';
+import { HttpRequest, HttpHandlerFn, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { SnackBarService } from '@core/services/snack-bar.service';
 import { ERROREMESSAGE, SERVER_ERROR } from '@shared/constants/error-messages';

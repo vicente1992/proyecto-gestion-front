@@ -17,7 +17,7 @@ const NULL_USER_ACCESS_TOKEN: AuthResponse = { user: NULL_USER, token: '' };
 @Injectable({
   providedIn: 'root'
 })
-export class AuthStorage {
+export class AuthStore {
 
   #localRepository: LocalRepository = inject(LocalRepository);
   #state: WritableSignal<AuthResponse> = signal<AuthResponse>(

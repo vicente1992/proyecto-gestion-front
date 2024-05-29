@@ -1,10 +1,5 @@
 import { inject } from '@angular/core';
-import {
-  HttpRequest,
-  HttpEvent,
-  HttpHandlerFn,
-  HttpErrorResponse,
-} from '@angular/common/http';
+import { HttpRequest, HttpEvent, HttpHandlerFn, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { LocalStorageService } from '@core/services/local-storage.service';
 import { AuthStorage } from '@features/auth/shared/models/auth-storage.enum';
