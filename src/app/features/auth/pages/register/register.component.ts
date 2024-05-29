@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -17,18 +17,16 @@ import { AuthService } from '@features/auth/shared/services/auth.service';
   imports: [RouterLink, ReactiveFormsModule, NgOptimizedImage],
   providers: [AuthService],
 })
-export class RegisterComponent implements OnInit {
+export default class RegisterComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
-  form!: FormGroup;
 
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required]),
-    });
-  }
+  form: FormGroup = new FormGroup({
+    name: new FormControl(null, [Validators.required]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required]),
+  });;
+
 
   register() {
     this.authService.register(this.form.value).subscribe(() => this.goToFeed());

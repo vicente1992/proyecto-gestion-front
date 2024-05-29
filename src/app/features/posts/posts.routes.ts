@@ -3,6 +3,6 @@ import { PostsComponent } from './pages/posts/posts.component';
 
 export const routes: Routes = [
     {
-        path: '', component: PostsComponent
+        path: 'grant', component: PostsComponent
     }
 ];

@@ -2,6 +2,7 @@ import { Injectable, Signal, WritableSignal, computed, inject, signal } from '@a
 import { AuthResponse } from '@features/auth/shared/models/auth';
 import { User } from '@features/auth/shared/models/user';
 import { LocalRepository } from '@shared/services/local.repository';
+
 const NULL_USER = {
 
   id: '',
@@ -26,7 +27,7 @@ export class AuthStore {
 
   isAuthenticated: Signal<boolean> = computed(() => this.#state().token !== '');
 
-  Token: Signal<string> = computed(() => this.#state().token);
+  token: Signal<string> = computed(() => this.#state().token);
 
   user: Signal<User> = computed(() => this.#state().user);
 
