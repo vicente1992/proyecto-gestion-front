@@ -33,6 +33,6 @@ export default class RegisterComponent {
   }
 
   goToFeed() {
-    this.router.navigate(['/', 'posts']);
+    this.router.navigate(['']);
   }
 }
