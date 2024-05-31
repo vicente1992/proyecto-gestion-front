@@ -3,5 +3,6 @@ export interface Grant {
     title: string;
     image: string;
     requirements: string;
+    type: string;
     dateEnd: string;
 }
