@@ -17,9 +17,9 @@ import { Observable } from 'rxjs';
   styleUrl: './grant.component.css',
 })
 export default class GrantComponent {
-  grantService = inject(GrantService);
+  #grantService = inject(GrantService);
 
-  #grants$: Observable<Grant[]> = this.grantService.getGrants();
+  #grants$: Observable<Grant[]> = this.#grantService.getGrants();
 
   grants: Signal<Grant[]> = toSignal(this.#grants$, { initialValue: [] });
 

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-layout-admin',
@@ -8,9 +9,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    SidebarComponent
   ],
   templateUrl: './layout-admin.component.html',
-  styleUrl: './layout-admin.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './layout-admin.component.css'
 })
 export class LayoutAdminComponent { }

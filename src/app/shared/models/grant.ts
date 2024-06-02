@@ -5,4 +5,5 @@ export interface Grant {
     requirements: string;
     type: string;
     dateEnd: string;
+    initialDate: string;
 }

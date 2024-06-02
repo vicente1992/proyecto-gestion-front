@@ -1,6 +1,6 @@
 import { ApplicationConfig, LOCALE_ID, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { provideCore } from '@core/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     { provide: LOCALE_ID, useValue: 'es' },
     provideCore(),
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom([BrowserModule, MatDialogModule]),
     provideHttpClient(

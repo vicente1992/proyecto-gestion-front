@@ -30,8 +30,8 @@ export class PostsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.listenObserver();
-    this.getPosts();
+    // this.listenObserver();
+    // this.getPosts();
   }
 
   getPosts() {
