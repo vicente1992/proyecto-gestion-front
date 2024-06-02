@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from '@core/services/user.service';
+import { AuthStore } from '@shared/store/Auth.store';
 
 @Component({
   selector: 'app-user-avatar',
@@ -10,8 +11,8 @@ import { UserService } from '@core/services/user.service';
   styleUrl: './user-avatar.component.scss'
 })
 export class UserAvatarComponent {
-  private userService = inject(UserService);
-  user = this.userService.userInfo;
+  private userService = inject(UserService); 
+  public authStore = inject(AuthStore);
 
   constructor() {
     this.userService.getCurrentUser();

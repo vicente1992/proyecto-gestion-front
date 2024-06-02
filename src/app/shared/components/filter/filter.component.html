@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="space-y-12">
+    <div class="mt-10 grid grid-cols-1 gap-x-2 gap-y-8 sm:grid-cols-4">
+      <div>
+        <div class="form-control w-full md:max-w-xl">
+          <input type="text" class="input input-bordered" formControlName="title" placeholder="Titulo" />
+        </div>
+      </div>
+      <div>
+        <div class="form-control w-full md:max-w-xl">
+          <input type="text" class="input input-bordered" formControlName="requirements" placeholder="Requisitos" />
+        </div>
+      </div>
+      <div>
+        <div class="form-control w-full md:max-w-xl">
+          <input type="text" class="input input-bordered" formControlName="type" placeholder="Nivel de educación" />
+        </div>
+      </div>
+      <div class=" col-start-1 col-span-1">
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</form>

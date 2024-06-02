@@ -7,6 +7,7 @@ import { AuthService } from '@features/auth/shared/services/auth.service';
 import { ModalCreatePostComponent } from '@features/posts/components/modal-create-post/modal-create-post.component';
 import { UserAvatarComponent } from '@shared/components/user-avatar/user-avatar.component';
 import { RolesDirective } from '@shared/directives/roles.directive';
+import { AuthStore } from '@shared/store/Auth.store';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +27,7 @@ export class NavbarComponent {
   private router = inject(Router);
   private authService = inject(AuthService);
   private modalService = inject(ModalService);
-  public isLoggedIn = inject(UserService).isLoggedIn();
+  public isLoggedIn = inject(AuthStore).isAuthenticated();
 
   openModal() {
     this.modalService.openDialog(ModalCreatePostComponent);

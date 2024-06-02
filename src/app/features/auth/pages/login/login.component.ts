@@ -34,6 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   goToFeed() {
-    this.router.navigate(['/', 'posts']);
+    this.router.navigate(['']);
   }
 }
