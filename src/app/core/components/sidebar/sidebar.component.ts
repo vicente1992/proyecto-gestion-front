@@ -16,18 +16,11 @@ export class SidebarComponent {
 
   menu: Array<any> = [
     {
-      path: ['/', 'chart'],
+      path: ['/', 'admin', 'grant'],
       icon: 'ri-bar-chart-2-line',
       tooltip: 'Estadisticas',
       roles: [],
     },
-    {
-      path: ['/tenans'],
-      icon: 'ri-building-line',
-      tooltip: 'Edificios',
-      roles: [],
-    },
-
 
   ];
 

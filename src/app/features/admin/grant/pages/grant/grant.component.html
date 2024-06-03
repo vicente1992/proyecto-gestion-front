@@ -1,0 +1,17 @@
+<section class="h-full">
+    <div class="my-5">
+        <h1 class="text-3xl font-bold">Becas</h1>
+    </div>
+    <div class="card bg-base-100 shadow-lg p-5 flex flex-col gap-5">
+        <div class="flex justify-between">
+            <app-filter></app-filter>
+            <button (click)="openModal()" class="button-primary flex gap-1">
+                <i class="ri-add-line icon"></i> Nueva beca
+            </button>
+        </div>
+        <app-grant-list [grants]="grants() " (onLoad)="onLoad()"></app-grant-list>
+        <div class="flex justify-end my-4">
+            <app-pagination></app-pagination>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,11 @@
+ .mat-mdc-dialog-container .mdc-dialog__surface {
+     border-radius: 8px;
+     width: 550px;
+ }
+
+ @media (max-width: 768px) {
+     .mat-mdc-dialog-container .mdc-dialog__surface {
+         max-height: 600px;
+
+     }
+ }

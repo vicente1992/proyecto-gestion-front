@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "variables";
+@import "assets/scss/plugins.scss";
+@import "assets/scss/form.scss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +12,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    // background: rgb(245, 245, 245);
+    background: rgb(245, 245, 245);
     font-size: 1rem;
 
 }
@@ -42,4 +46,15 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+
+.button-primary {
+    font-size: 14px;
+    @apply inline-flex items-center px-3 py-2 bg-primary border border-transparent rounded-md text-white font-semibold tracking-widest focus:outline-none first-letter:transition ease-in-out duration-150;
+}
+
+.button-secundary {
+    font-size: 14px;
+    @apply outline outline-1 outline-offset-1 border-gray-900 inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-gray-900 tracking-widest hover:bg-gray-700 hover:text-white focus:bg-gray-700 active:bg-gray-900 focus:outline-none transition ease-in-out duration-150
 }

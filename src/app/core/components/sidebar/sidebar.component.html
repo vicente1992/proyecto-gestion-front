@@ -8,12 +8,15 @@
             </li>
         </ul>
         <ul class="sidebar-menu grow">
+            @for (item of menu; track $index) {
             <li routerLinkActive="active" class="sidebar-item flex justify-center" [routerLink]="item.path"
-                [routerLinkActiveOptions]="{exact: true}" *ngFor="let item of menu">
+                [routerLinkActiveOptions]="{exact: true}">
                 <div class="sidebar-button flex justify-center">
                     <i [className]="item?.icon"></i>
                 </div>
             </li>
+
+            }
         </ul>
         <ul class="sidebar-menu grow-0">
             <li class="sidebar-footer sidebar-item">
