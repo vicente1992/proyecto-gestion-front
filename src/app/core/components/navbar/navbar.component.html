@@ -2,16 +2,11 @@
   <div class="container-layout">
     <div class="flex-1 ml-4">
       <figure>
-        <img priority class="h-12" ngSrc="assets/logo.jpg" width="200" height="200">
+        <img priority ngSrc="assets/images/logo.png" width="60" height="60">
       </figure>
     </div>
     <div class="flex items-center gap-4">
       @if (isLoggedIn) {
-      <div>
-        <button appRoles [roles]="['admin']" (click)="openModal()" class="btn btn-outline btn-primary">
-          Crear publicación
-        </button>
-      </div>
       <div class="dropdown dropdown-end">
         <label tabindex="0">
           <app-user-avatar></app-user-avatar>

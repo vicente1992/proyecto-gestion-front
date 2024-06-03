@@ -27,7 +27,7 @@ export default class DetailComponent {
 
   #grantId$: Observable<string> = toObservable(this.id);
 
-  #grant$: Observable<Grant | undefined> = this.#grantId$.pipe(switchMap(() => this.#grantService.getGrant(this.id())));
+  #grant$: Observable<Grant | undefined> = this.#grantId$.pipe(switchMap(() => this.#grantService.getOne(this.id())));
 
   grant: Signal<Grant | undefined> = toSignal(this.#grant$, { initialValue: undefined });
 

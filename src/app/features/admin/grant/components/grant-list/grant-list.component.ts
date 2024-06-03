@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, input, output } from '@angular/core';
 import { ModalService } from '@core/services/modal.service';
-import { Grant, GrantV } from '@shared/models/grant';
+import { Grant } from '@shared/models/grant';
 import { GrantFormComponent } from '../grant-form/grant-form.component';
 import { GrantService } from '@shared/services/grant.service';
 
@@ -16,7 +16,7 @@ import { GrantService } from '@shared/services/grant.service';
   styleUrl: './grant-list.component.css',
 })
 export class GrantListComponent {
-  grants = input.required<GrantV[]>();
+  grants = input.required<Grant[]>();
   #modalService = inject(ModalService);
   #grantService = inject(GrantService);
   onLoad = output<void>();
@@ -34,8 +34,8 @@ export class GrantListComponent {
   }
 
 
-  openModal(data: GrantV) {
-    this.#modalService.openDialog(GrantFormComponent, { ...data })
+  openModal(data: Grant) {
+    this.#modalService.openDialog<Grant>(GrantFormComponent, { ...data })
       .subscribe(() => this.onLoad.emit());
   }
 }

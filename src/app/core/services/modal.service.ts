@@ -13,7 +13,7 @@ export class ModalService {
     return await firstValueFrom(dialogRef.afterClosed());
   }
 
-  openDialog(component: ComponentType<unknown>, data = {}) {
+  openDialog<T>(component: ComponentType<unknown>, data: T = {} as T) {
     const dialogRef = this.dialog.open(component, { data });
     return new Observable((observer) => {
       dialogRef.afterClosed().subscribe((response) => {
@@ -24,4 +24,5 @@ export class ModalService {
       });
     });
   }
+
 }

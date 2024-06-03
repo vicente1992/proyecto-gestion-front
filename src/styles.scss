@@ -12,8 +12,9 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background: rgb(245, 245, 245);
-    font-size: 1rem;
+    background: rgb(245, 245, 245); 
+    font-size: 1rem; 
+    min-height: 100;
 
 }
 
@@ -29,11 +30,11 @@ body {
 
 
 ::-webkit-scrollbar {
-    width: 2px;
+    width: 3px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #555;
 }
 
 ::-webkit-scrollbar-thumb {

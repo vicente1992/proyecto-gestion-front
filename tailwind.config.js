@@ -15,7 +15,7 @@ const colors = {
   // Custom
   ground: '#ffffff',
   bloom: '#282b30',
-  smoke: '#e8f0f0',
+  smoke: '#f9fafc',
   soot: '#798586',
 };
 module.exports = {

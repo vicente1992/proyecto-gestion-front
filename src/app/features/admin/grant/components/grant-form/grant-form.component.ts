@@ -7,7 +7,7 @@ import { LevelEducationService } from '../../shared/services/level-education.ser
 import { LevelEducation } from '../../shared/leve-education';
 import { Observable } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { GrantV } from '@shared/models/grant';
+import { Grant } from '@shared/models/grant';
 import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { GrantService } from '@shared/services/grant.service';
 
@@ -26,7 +26,7 @@ import { GrantService } from '@shared/services/grant.service';
   providers: [LevelEducationService]
 })
 export class GrantFormComponent implements OnInit {
-  @Inject(DIALOG_DATA) public data: GrantV = inject(DIALOG_DATA);
+  @Inject(DIALOG_DATA) public data: Grant = inject(DIALOG_DATA);
   public dialogRef = inject(MatDialogRef);
   #levelEducationService = inject(LevelEducationService);
   #grantService = inject(GrantService);
