@@ -6,6 +6,7 @@
                 <th>Titulo</th>
                 <th>Nivel De Educación</th>
                 <th>Requisitos</th>
+                <th>Estado</th>
                 <th>Fecha Apertura</th>
                 <th>Fecha Cierre</th>
                 <th>Acciones</th>
@@ -25,6 +26,11 @@
                 <td>{{item.title}}</td>
                 <td>{{item.levelEducation}}</td>
                 <td>{{item.requirements | slice: 0:50}}</td>
+                <td>
+                    <span class="badge text-white" [ngClass]="{'badge-success': item.isActive, 'badge-error': !item.isActive}">
+                        {{item.isActive ? 'Vigente' : 'Cerrada'}}
+                    </span>
+                </td>
                 <td>{{item.initialDate | date: 'MMMM d, y'}}</td>
                 <td>{{item.dateEnd | date: 'MMMM d, y'}}</td>
                 <td>

@@ -31,8 +31,8 @@ export class GrantFormComponent implements OnInit {
   #levelEducationService = inject(LevelEducationService);
   #grantService = inject(GrantService);
   logoUrl = signal<string>('');
-  grantId = signal<string>('');
-  grantExists = computed(() => this.grantId() !== '');
+  grantId = signal<string | undefined>('');
+  grantExists = computed(() => !!this.grantId());
 
   #levelsEducations$: Observable<LevelEducation[]> = this.#levelEducationService.getAll();
 
@@ -70,7 +70,7 @@ export class GrantFormComponent implements OnInit {
   }
 
   update(): void {
-    this.#grantService.update(this.grantId(), this.form.value)
+    this.#grantService.update(this.grantId() as string, this.form.value)
       .subscribe(() => {
         this.dialogRef.close(true)
       })

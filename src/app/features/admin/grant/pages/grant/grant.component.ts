@@ -9,6 +9,7 @@ import { Grant } from '@shared/models/grant';
 import { tap } from 'rxjs';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component'; 
 import { Params } from '@angular/router';
+import { Filter } from '@shared/models/filter';
 
 @Component({
   selector: 'app-grant',
@@ -32,6 +33,7 @@ export default class GrantComponent implements OnInit {
   limit = signal<number>(7);
   total = signal<number>(0);
   totalPages = computed(() => Math.ceil(this.total() / this.limit())); 
+  filter = signal<Filter>({ title: '', levelEducation: '', status: '' });
 
 
   ngOnInit(): void {
@@ -41,8 +43,9 @@ export default class GrantComponent implements OnInit {
   #getGrants() {
     const params: Params = {
       page: this.page(),
-      limit: this.limit()
-    }
+      limit: this.limit(),
+      ...this.filter()
+    } 
     this.#grantService.getAll(params)
       .pipe(tap(({ data, count }) => {
         this.grants.set(data);
@@ -62,6 +65,12 @@ export default class GrantComponent implements OnInit {
 
   onPagination(currentPage: number) {
     this.page.set(currentPage);
+    this.#getGrants();
+  }
+
+  onFilter(filter: Filter) {
+    this.filter.set(filter);
+    this.page.set(1);
     this.#getGrants();
   }
 }

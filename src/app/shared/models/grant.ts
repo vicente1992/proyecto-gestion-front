@@ -8,4 +8,5 @@ export interface Grant {
     createdAt: string;
     levelEducation: string;
     levelEducationId: string;
+    isActive: boolean;
 }

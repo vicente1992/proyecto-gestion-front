@@ -10,7 +10,7 @@ const colors = {
   info: '#0597e1',
   success: '#49a271',
   warning: '#fcf282',
-  error: '#ff5e5c',
+  danger: '#ff5e5c',
 
   // Custom
   ground: '#ffffff',

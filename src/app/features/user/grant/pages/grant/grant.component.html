@@ -3,7 +3,7 @@
         <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Becas vigentes</h1>
     </div>
     <div class="mx-auto  px-6 my-5">
-        <app-filter></app-filter>
+        <app-filter (filter)="onFilter($event)"></app-filter>
     </div>
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div
