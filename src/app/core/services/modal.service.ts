@@ -6,15 +6,15 @@ import { ModalConfirmComponent } from '@core/components/modal-confirm/modal-conf
 
 @Injectable()
 export class ModalService {
-  private dialog = inject(MatDialog);
+  #dialog = inject(MatDialog);
 
   async confirm() {
-    const dialogRef = this.dialog.open(ModalConfirmComponent);
+    const dialogRef = this.#dialog.open(ModalConfirmComponent);
     return await firstValueFrom(dialogRef.afterClosed());
   }
 
   openDialog<T>(component: ComponentType<unknown>, data: T = {} as T) {
-    const dialogRef = this.dialog.open(component, { data });
+    const dialogRef = this.#dialog.open(component, { data });
     return new Observable((observer) => {
       dialogRef.afterClosed().subscribe((response) => {
         if (response) {

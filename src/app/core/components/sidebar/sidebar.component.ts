@@ -11,8 +11,8 @@ import { AuthService } from '@features/auth/shared/services/auth.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  private router = inject(Router);
-  private authService = inject(AuthService);
+  #router = inject(Router);
+  #authService = inject(AuthService);
 
   menu: Array<any> = [
     {
@@ -25,8 +25,8 @@ export class SidebarComponent {
   ];
 
   logout() {
-    this.authService.logout().then(() => {
-      this.router.navigate(['/', 'auth', 'login']);
+    this.#authService.logout().then(() => {
+      this.#router.navigate(['/', 'auth', 'login']);
     });
   }
 }

@@ -9,27 +9,27 @@ import { AuthStore } from '@shared/store/Auth.store';
 
 @Injectable()
 export class AuthService extends HttpService {
-  private apiTenant = environment.apiUrl;
-  private storageService = inject(LocalStorageService);
-  private authStore = inject(AuthStore);
+  #apiUrl = environment.apiUrl;
+  #storageService = inject(LocalStorageService);
+  #authStore = inject(AuthStore);
 
   login(body: any): Observable<AuthResponse> {
-    return this.doPost<AuthResponse>(`${this.apiTenant}/auth/login`, body)
-      .pipe(tap((data) => this.authStore.setState(data)));
+    return this.doPost<AuthResponse>(`${this.#apiUrl}/auth/login`, body)
+      .pipe(tap((data) => this.#authStore.setState(data)));
   }
 
   register(body: any): Observable<AuthResponse> {
-    return this.doPost<AuthResponse>(`${this.apiTenant}/auth/register`, body)
-      .pipe(tap((data) => this.authStore.setState(data)));
+    return this.doPost<AuthResponse>(`${this.#apiUrl}/auth/register`, body)
+      .pipe(tap((data) => this.#authStore.setState(data)));
   }
 
   refresh(): Observable<AuthResponse> {
-    return this.doGet<AuthResponse>(`${this.apiTenant}/auth/refresh`)
-      .pipe(tap((data) => this.authStore.setState(data)));
+    return this.doGet<AuthResponse>(`${this.#apiUrl}/auth/refresh`)
+      .pipe(tap((data) => this.#authStore.setState(data)));
   }
   public logout() {
     return new Promise((resolve) => {
-      this.storageService.clear();
+      this.#storageService.clear();
       resolve(true);
     });
   }

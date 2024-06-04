@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
 import { environment } from '@environments/environment.development';
-import { LevelEducation } from '../leve-education';
+import { LevelEducation } from '../models/leve-education';
 import { Observable } from 'rxjs';
 
 @Injectable()

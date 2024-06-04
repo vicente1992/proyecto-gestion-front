@@ -4,7 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { UploadFileComponent } from '@shared/components/upload-file/upload-file.component';
 import { LevelEducationService } from '../../shared/services/level-education.service';
-import { LevelEducation } from '../../shared/leve-education';
+import { LevelEducation } from '../../shared/models/leve-education';
 import { Observable } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Grant } from '@shared/models/grant';
@@ -64,16 +64,12 @@ export class GrantFormComponent implements OnInit {
 
   create(): void {
     this.#grantService.create(this.form.value)
-      .subscribe(() => {
-        this.dialogRef.close(true)
-      })
+      .subscribe(() => this.dialogRef.close(true))
   }
 
   update(): void {
     this.#grantService.update(this.grantId() as string, this.form.value)
-      .subscribe(() => {
-        this.dialogRef.close(true)
-      })
+      .subscribe(() => this.dialogRef.close(true))
   }
 
   onFile(logo: string) {

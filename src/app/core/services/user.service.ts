@@ -5,21 +5,21 @@ import { AuthStorage } from '@features/auth/shared/models/auth-storage.enum';
 
 @Injectable()
 export class UserService {
-  private storageService = inject(LocalStorageService);
-  private _user = signal<User | null>(null);
+  #storageService = inject(LocalStorageService);
+  #user = signal<User | null>(null);
 
   get userInfo(): WritableSignal<User | null> {
-    return this._user;
+    return this.#user;
   }
 
   isLoggedIn() {
-    return !!this.storageService.getItem(AuthStorage.TOKEN);
+    return !!this.#storageService.getItem(AuthStorage.TOKEN);
   }
 
   getCurrentUser(): void {
-    const user = this.storageService.getItem(AuthStorage.USER);
+    const user = this.#storageService.getItem(AuthStorage.USER);
     if (user) {
-      this._user.set(JSON.parse(user));
+      this.#user.set(JSON.parse(user));
     }
   }
 

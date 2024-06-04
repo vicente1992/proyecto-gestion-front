@@ -1,4 +1,4 @@
-export interface Grant {
+export type Grant = {
     _id: string;
     title: string;
     logo: string;

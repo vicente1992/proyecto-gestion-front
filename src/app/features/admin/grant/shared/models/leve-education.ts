@@ -1,4 +1,4 @@
-export interface LevelEducation {
+export type LevelEducation = {
     _id: string;
     name: string;
     createdAt: string;

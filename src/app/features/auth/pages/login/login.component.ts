@@ -18,18 +18,18 @@ import { AuthService } from '@features/auth/shared/services/auth.service';
   providers: [AuthService],
 })
 export default class LoginComponent {
-  private authService = inject(AuthService);
-  private router = inject(Router);
+  #authService = inject(AuthService);
+  #router = inject(Router);
   form: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required]),
   });;
 
   login() {
-    this.authService.login(this.form.value).subscribe(() => this.goToFeed());
+    this.#authService.login(this.form.value).subscribe(() => this.goToHome());
   }
 
-  goToFeed() {
-    this.router.navigate(['']);
+  goToHome() {
+    this.#router.navigate(['']);
   }
 }

@@ -18,8 +18,8 @@ import { AuthService } from '@features/auth/shared/services/auth.service';
   providers: [AuthService],
 })
 export default class RegisterComponent {
-  private authService = inject(AuthService);
-  private router = inject(Router);
+  #authService = inject(AuthService);
+  #router = inject(Router);
 
   form: FormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required]),
@@ -29,10 +29,10 @@ export default class RegisterComponent {
 
 
   register() {
-    this.authService.register(this.form.value).subscribe(() => this.goToFeed());
+    this.#authService.register(this.form.value).subscribe(() => this.goToHome());
   }
 
-  goToFeed() {
-    this.router.navigate(['']);
+  goToHome() {
+    this.#router.navigate(['']);
   }
 }

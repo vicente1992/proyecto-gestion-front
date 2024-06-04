@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, DestroyRef, OnInit, Signal, inject, output } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { tick } from '@angular/core/testing';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { LevelEducation } from '@features/admin/grant/shared/leve-education';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { LevelEducation } from '@features/admin/grant/shared/models/leve-education';
 import { LevelEducationService } from '@features/admin/grant/shared/services/level-education.service';
 import { Filter } from '@shared/models/filter';
-import { Observable, Subject, debounceTime, tap } from 'rxjs';
+import { Observable, debounceTime, tap } from 'rxjs';
 
 @Component({
   selector: 'app-filter',

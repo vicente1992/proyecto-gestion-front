@@ -1,10 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { ModalService } from '@core/services/modal.service';
-import { UserService } from '@core/services/user.service';
 import { AuthService } from '@features/auth/shared/services/auth.service';
-import { ModalCreatePostComponent } from '@features/posts/components/modal-create-post/modal-create-post.component';
 import { UserAvatarComponent } from '@shared/components/user-avatar/user-avatar.component';
 import { RolesDirective } from '@shared/directives/roles.directive';
 import { AuthStore } from '@shared/store/Auth.store';
@@ -24,18 +21,14 @@ import { AuthStore } from '@shared/store/Auth.store';
   providers: [AuthService],
 })
 export class NavbarComponent {
-  private router = inject(Router);
-  private authService = inject(AuthService);
-  private modalService = inject(ModalService);
+  #router = inject(Router);
+  #authService = inject(AuthService); 
   public isLoggedIn = inject(AuthStore).isAuthenticated();
 
-  openModal() {
-    this.modalService.openDialog(ModalCreatePostComponent);
-  }
 
   logout() {
-    this.authService.logout().then(() => {
-      this.router.navigate(['/', 'auth', 'login']);
+    this.#authService.logout().then(() => {
+      this.#router.navigate(['/', 'auth', 'login']);
     });
   }
 }
