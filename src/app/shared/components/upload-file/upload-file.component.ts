@@ -38,7 +38,6 @@ export class UploadFileComponent {
     reader.onload = () => {
       const logo = String(reader.result);
       this.filePreview.set(logo);
-
     };
     reader.readAsDataURL((file));
   }
