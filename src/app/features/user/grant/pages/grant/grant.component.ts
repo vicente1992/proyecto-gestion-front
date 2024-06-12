@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { Params } from '@angular/router';
 import { tap } from 'rxjs';
-import { CardGrantComponent } from '@shared/components/card-grant/card-grant.component';
 import { FilterComponent } from '@shared/components/filter/filter.component';
 import { Filter } from '@shared/models/filter';
 import { Grant } from '@shared/models/grant';
 import { GrantService } from '@shared/services/grant.service';
+import { CardGrantComponent } from '../../components/card-grant/card-grant.component';
 
 @Component({
   selector: 'app-grant',

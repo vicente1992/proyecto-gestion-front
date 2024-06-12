@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ViewChild, computed, inject, output, signal } from '@angular/core';
+import { Component, Input, ViewChild, computed, inject, input, output, signal } from '@angular/core';
+import { SnackBarService } from '@core/services/snack-bar.service';
+import { IVALID_EXTENSION } from '@shared/constants/messages';
 import { UploadFileService } from '@shared/services/uploadFile.service';
 
 @Component({
@@ -14,6 +16,7 @@ import { UploadFileService } from '@shared/services/uploadFile.service';
 })
 export class UploadFileComponent {
   #uploadFileService = inject(UploadFileService);
+  #snackBarService = inject(SnackBarService);
   @ViewChild('fileInput') fileInput: any;
   file = output<string>();
   @Input()
@@ -22,13 +25,17 @@ export class UploadFileComponent {
       this.filePreview.set(url);
     }
   }
+  fileExtensions = input.required<string[]>();
   filePreview = signal<string>('');
-
   fileExists = computed(() => !!this.filePreview().length);
+  extensions = computed(() => this.fileExtensions().join(','));
 
   onChangeFile(event: any) {
     const [file] = event.target.files;
     if (!file) return;
+    if (!this.isValidExtension(file)) {
+      return this.#snackBarService.openSnackBar(IVALID_EXTENSION);
+    }
     this.displayImagePreview(file);
     this.uploadFile(file);
   }
@@ -44,7 +51,7 @@ export class UploadFileComponent {
 
   removeImage(): void {
     this.filePreview.set('');
-    this.resetFileInput();
+    this.#resetFileInput();
   }
 
   uploadFile(file: File): void {
@@ -57,8 +64,14 @@ export class UploadFileComponent {
     });
   }
 
-  private resetFileInput() {
+  #resetFileInput() {
     this.fileInput.nativeElement.value = '';
   }
 
+  isValidExtension(file: File): boolean {
+    const extension = file.name.split('.').pop() ?? '';
+    return this.fileExtensions().includes(extension);
+  }
+
+  // PNG, JPG, GIF
 }

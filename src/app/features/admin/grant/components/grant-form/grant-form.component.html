@@ -61,7 +61,7 @@
             </div>
             <div class="col-span-full">
                 <label for="last-name" class="form-label">Logo</label>
-                <app-upload-file [fileUrl]="logoUrl()" (file)="onFile($event)"></app-upload-file>
+                <app-upload-file [fileUrl]="logoUrl()" (file)="onFile($event)" [fileExtensions]="fileExtensions()"></app-upload-file>
             </div>
 
             <div class="flex justify-end gap-3 py-7">

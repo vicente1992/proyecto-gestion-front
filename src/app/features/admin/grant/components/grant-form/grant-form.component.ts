@@ -32,6 +32,7 @@ export class GrantFormComponent implements OnInit {
   #grantService = inject(GrantService);
   logoUrl = signal<string>('');
   grantId = signal<string | undefined>('');
+  fileExtensions = signal<string[]>(['png', 'jpg', 'jpeg']);
   grantExists = computed(() => !!this.grantId());
 
   #levelsEducations$: Observable<LevelEducation[]> = this.#levelEducationService.getAll();
