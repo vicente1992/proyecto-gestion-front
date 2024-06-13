@@ -8,9 +8,12 @@
             </li>
         </ul>
         <ul class="sidebar-menu grow">
-            @for (item of menu; track $index) {
+            @for (item of menu(); track $index) {
             <li routerLinkActive="active" class="sidebar-item flex justify-center" [routerLink]="item.path"
-                [routerLinkActiveOptions]="{exact: true}">
+                [routerLinkActiveOptions]="{exact: true}"
+                [matTooltip]="item.tooltip"
+                [matTooltipPosition]="'right'"
+                >
                 <div class="sidebar-button flex justify-center">
                     <i [className]="item?.icon"></i>
                 </div>

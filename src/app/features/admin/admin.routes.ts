@@ -13,6 +13,10 @@ export const routes: Routes = [
                 loadChildren: () => import('@features/admin/grant/grant.routes').then((m) => m.routes)
             },
             {
+                path: 'application',
+                loadComponent: () => import('@features/admin/application/pages/applications/applications.component')
+            },
+            {
                 path: '',
                 redirectTo: 'grant',
                 pathMatch: 'full',

@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { tap } from 'rxjs';
 import { GrantListComponent } from '../../components/grant-list/grant-list.component';
 import { FilterComponent } from '@shared/components/filter/filter.component';
 import { ModalService } from '@core/services/modal.service';
 import { GrantFormComponent } from '../../components/grant-form/grant-form.component';
 import { GrantService } from '@shared/services/grant.service';
 import { Grant } from '@shared/models/grant';
-import { tap } from 'rxjs';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component'; 
 import { Params } from '@angular/router';
 import { Filter } from '@shared/models/filter';
@@ -25,7 +25,6 @@ import { Filter } from '@shared/models/filter';
   styleUrl: './grant.component.css',
 })
 export default class GrantComponent implements OnInit {
-
   #modalService = inject(ModalService);
   #grantService = inject(GrantService);
   grants = signal<Grant[]>([]);
@@ -34,7 +33,6 @@ export default class GrantComponent implements OnInit {
   total = signal<number>(0);
   totalPages = computed(() => Math.ceil(this.total() / this.limit())); 
   filter = signal<Filter>({ title: '', levelEducation: '', status: '' });
-
 
   ngOnInit(): void {
     this.#getGrants();

@@ -10,8 +10,8 @@
 
 html,
 body {
-    // margin: 0;
-    // padding: 0;
+    margin: 0;
+    padding: 0;
     background: rgb(245, 245, 245); 
     font-size: 1rem; 
     min-height: 100;
@@ -60,4 +60,10 @@ body {
 .button-secundary {
     font-size: 14px;
     @apply outline outline-1 outline-offset-1 border-gray-900 inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-gray-900 tracking-widest hover:bg-gray-700 hover:text-white focus:bg-gray-700 active:bg-gray-900 focus:outline-none transition ease-in-out duration-150
+}
+
+@media (max-width: 599px) {
+    .cdk-overlay-pane.mat-mdc-dialog-panel { 
+     max-width: none !important;
+    }
 }
