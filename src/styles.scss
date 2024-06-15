@@ -12,14 +12,14 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background: rgb(245, 245, 245); 
-    font-size: 1rem; 
+    background: rgb(245, 245, 245);
+    font-size: 1rem;
     min-height: 100;
-    
+
 
 }
 
- 
+
 .btn {
     @apply normal-case text-lg;
     min-height: 2.5rem;
@@ -63,7 +63,8 @@ body {
 }
 
 @media (max-width: 599px) {
-    .cdk-overlay-pane.mat-mdc-dialog-panel { 
-     max-width: none !important;
+    .cdk-overlay-pane.mat-mdc-dialog-panel {
+        max-width: none !important;
+        max-height: 700px;
     }
 }

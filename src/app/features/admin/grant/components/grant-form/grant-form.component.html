@@ -1,4 +1,4 @@
-<div class="modal-container">
+<div class="bg-white rounded shadow-md p-2 min-w-full md:min-w-[500px] max-w-full md:max-w-[500px]">
     <section
         class="flex flex-row items-center justify-between px-5 py-3 border-b  border-opacity-5  border-gray-900/10">
         <h2 class="text-gray-900 block text-lg font-medium leading-6">Formulario de becas</h2>
@@ -33,14 +33,14 @@
                 <div class="colum-form">
                     <label for="first-name" class="form-label">Fecha Apertura</label>
                     <div class="mt-2">
-                        <input type="date" class="input input-bordered w-full md:max-w-xl" formControlName="initialDate">
+                        <input type="date" class="input input-bordered w-full md:max-w-xl"
+                            formControlName="initialDate">
                     </div>
                 </div>
                 <div class="colum-form">
                     <label for="last-name" class="form-label">Fecha Cierre</label>
                     <div class="mt-2">
-                        <input type="date" class="input input-bordered w-full md:max-w-xl"
-                            formControlName="dateEnd">
+                        <input type="date" class="input input-bordered w-full md:max-w-xl" formControlName="dateEnd">
                     </div>
                 </div>
             </div>
@@ -61,7 +61,8 @@
             </div>
             <div class="col-span-full">
                 <label for="last-name" class="form-label">Logo</label>
-                <app-upload-file [fileUrl]="logoUrl()" (file)="onFile($event)" [fileExtensions]="fileExtensions()"></app-upload-file>
+                <app-upload-file [fileUrl]="logoUrl()" (file)="onFile($event)"
+                    [fileExtensions]="fileExtensions()"></app-upload-file>
             </div>
 
             <div class="flex justify-end gap-3 py-7">

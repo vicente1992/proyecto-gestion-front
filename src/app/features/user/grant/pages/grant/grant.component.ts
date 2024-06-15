@@ -18,6 +18,7 @@ import { CardGrantComponent } from '../../components/card-grant/card-grant.compo
   ],
   templateUrl: './grant.component.html',
   styleUrl: './grant.component.css',
+  providers: [GrantService]
 })
 export default class GrantComponent implements OnInit {
 

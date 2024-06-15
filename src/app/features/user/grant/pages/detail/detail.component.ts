@@ -16,7 +16,8 @@ import { RouterLink } from '@angular/router';
     RouterLink
   ],
   templateUrl: './detail.component.html',
-  styleUrl: './detail.component.css'
+  styleUrl: './detail.component.css',
+  providers: [GrantService]
 })
 export default class DetailComponent {
   #grantService = inject(GrantService);

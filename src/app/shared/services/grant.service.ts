@@ -5,9 +5,7 @@ import { environment } from '@environments/environment.development';
 import { Grant } from '@shared/models/grant';
 import { Observable, } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GrantService extends HttpService {
   #apiUrl = environment.apiUrl;
 

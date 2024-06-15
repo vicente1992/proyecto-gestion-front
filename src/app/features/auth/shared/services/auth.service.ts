@@ -27,6 +27,7 @@ export class AuthService extends HttpService {
     return this.doGet<AuthResponse>(`${this.#apiUrl}/auth/refresh`)
       .pipe(tap((data) => this.#authStore.setState(data)));
   }
+
   public logout() {
     return new Promise((resolve) => {
       this.#storageService.clear();

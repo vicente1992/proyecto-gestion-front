@@ -7,7 +7,7 @@ import { ModalService } from '@core/services/modal.service';
 import { GrantFormComponent } from '../../components/grant-form/grant-form.component';
 import { GrantService } from '@shared/services/grant.service';
 import { Grant } from '@shared/models/grant';
-import { PaginationComponent } from '@shared/components/pagination/pagination.component'; 
+import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { Params } from '@angular/router';
 import { Filter } from '@shared/models/filter';
 
@@ -23,6 +23,7 @@ import { Filter } from '@shared/models/filter';
   ],
   templateUrl: './grant.component.html',
   styleUrl: './grant.component.css',
+  providers: [GrantService]
 })
 export default class GrantComponent implements OnInit {
   #modalService = inject(ModalService);
@@ -31,7 +32,7 @@ export default class GrantComponent implements OnInit {
   page = signal<number>(1);
   limit = signal<number>(7);
   total = signal<number>(0);
-  totalPages = computed(() => Math.ceil(this.total() / this.limit())); 
+  totalPages = computed(() => Math.ceil(this.total() / this.limit()));
   filter = signal<Filter>({ title: '', levelEducation: '', status: '' });
 
   ngOnInit(): void {
@@ -43,7 +44,7 @@ export default class GrantComponent implements OnInit {
       page: this.page(),
       limit: this.limit(),
       ...this.filter()
-    } 
+    }
     this.#grantService.getAll(params)
       .pipe(tap(({ data, count }) => {
         this.grants.set(data);

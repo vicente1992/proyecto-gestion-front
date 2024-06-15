@@ -14,6 +14,7 @@ import { GrantService } from '@shared/services/grant.service';
   ],
   templateUrl: './grant-list.component.html',
   styleUrl: './grant-list.component.css',
+  providers: [GrantService]
 })
 export class GrantListComponent {
   grants = input.required<Grant[]>();
@@ -32,7 +33,6 @@ export class GrantListComponent {
     this.#grantService.delete(id)
       .subscribe(() => this.onLoad.emit());
   }
-
 
   openModal(data: Grant) {
     this.#modalService.openDialog<Grant>(GrantFormComponent, { ...data })

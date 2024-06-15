@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnInit, Signal, ViewEncapsulation, computed, inject, signal } from '@angular/core';
+import { Component, Inject, OnInit, Signal, computed, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { UploadFileComponent } from '@shared/components/upload-file/upload-file.component';
 import { LevelEducationService } from '../../shared/services/level-education.service';
 import { LevelEducation } from '../../shared/models/leve-education';
 import { Observable } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Grant } from '@shared/models/grant';
-import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { GrantService } from '@shared/services/grant.service';
 
 @Component({
@@ -22,8 +22,7 @@ import { GrantService } from '@shared/services/grant.service';
   ],
   templateUrl: './grant-form.component.html',
   styleUrl: './grant-form.component.css',
-  encapsulation: ViewEncapsulation.None,
-  providers: [LevelEducationService]
+  providers: [LevelEducationService, GrantService]
 })
 export class GrantFormComponent implements OnInit {
   @Inject(DIALOG_DATA) public data: Grant = inject(DIALOG_DATA);
@@ -48,7 +47,6 @@ export class GrantFormComponent implements OnInit {
     requirements: new FormControl(null, [Validators.required]),
   });
 
-
   ngOnInit(): void {
     if (this.data) {
       const { levelEducationId: levelEducation, ...res } = this.data;
@@ -57,7 +55,6 @@ export class GrantFormComponent implements OnInit {
       this.grantId.set(res._id);
     }
   }
-
 
   onSubmit() {
     this.grantExists() ? this.update() : this.create();
